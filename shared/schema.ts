@@ -31,7 +31,7 @@ export const insertMessageSchema = createInsertSchema(messages).pick({
   character: true,
 });
 
-export const characterTypes = ["trump", "milchick", "yoda"] as const;
+export const characterTypes = ["trump", "milchick", "yoda", "clooney", "obama", "oprah"] as const;
 export const characterSchema = z.enum(characterTypes);
 export type Character = z.infer<typeof characterSchema>;
 

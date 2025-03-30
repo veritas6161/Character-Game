@@ -1,0 +1,14 @@
+<svg width="150" height="150" viewBox="0 0 150 150" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="75" cy="75" r="70" fill="#D2B48C" />
+  <path d="M75 30C55 30 40 52 40 75C40 98 55 120 75 120C95 120 110 98 110 75C110 52 95 30 75 30Z" fill="#CD853F" />
+  <path d="M45 65C45 65 55 85 75 85C95 85 105 65 105 65" stroke="#8B4513" stroke-width="5" />
+  <ellipse cx="60" cy="60" rx="5" ry="7" fill="#4B3621" />
+  <ellipse cx="90" cy="60" rx="5" ry="7" fill="#4B3621" />
+  <path d="M60 40C60 40 65 35 75 35C85 35 90 40 90 40" stroke="#000000" stroke-width="2" />
+  <path d="M45 45C45 45 60 35 75 40C90 35 105 45 105 45" stroke="#4B3621" stroke-width="3" />
+  <path d="M65 85C65 85 75 90 85 85" stroke="#000000" stroke-width="2" />
+  <path d="M65 100C65 100 75 110 85 100" stroke="#000000" stroke-width="2" />
+  <!-- Salt and pepper hair -->
+  <path d="M45 40C45 40 60 30 75 30C90 30 105 40 105 40" stroke="#808080" stroke-width="5" />
+  <path d="M55 35C55 35 65 25 75 25C85 25 95 35 95 35" stroke="#000000" stroke-width="3" />
+</svg>

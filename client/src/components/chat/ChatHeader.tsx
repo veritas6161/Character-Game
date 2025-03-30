@@ -1,16 +1,11 @@
 import { Character } from "@shared/schema";
+import { characterImages } from "./CharacterImages";
 
 interface ChatHeaderProps {
   onClearChat: () => void;
   character?: Character | null;
   onChangeCharacter?: () => void;
 }
-
-const characterNames: Record<Character, string> = {
-  trump: "Donald Trump",
-  milchick: "Seth Milchick",
-  yoda: "Yoda"
-};
 
 export default function ChatHeader({ 
   onClearChat, 
@@ -21,8 +16,8 @@ export default function ChatHeader({
     <header className="border-b border-muted p-4">
       <div className="flex items-center justify-between max-w-7xl mx-auto">
         <h1 className="text-xl font-semibold">
-          {character 
-            ? `Chat with ${characterNames[character]}` 
+          {character && characterImages[character]
+            ? `Chat with ${characterImages[character].name}` 
             : "Character Chat"
           }
         </h1>

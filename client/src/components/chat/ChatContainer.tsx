@@ -35,6 +35,12 @@ export default function ChatContainer({ messages, isLoading }: ChatContainerProp
         return "Good day. Seth Milchick here from Lumon Industries. How may I be of assistance? Per company protocol, I'm here to facilitate a productive conversation.";
       case "yoda":
         return "Greetings, young one. Yoda, I am. Help you with your questions, I will. The Force, strong with our conversation it shall be, hmm?";
+      case "clooney":
+        return "Hey there, George Clooney here. Great to connect with you. What's on your mind today? I've got some time between takes, so let's have a conversation.";
+      case "obama":
+        return "Hello. Barack Obama here. It's good to be with you today. I'm looking forward to our conversation and hearing what's on your mind. So, what would you like to discuss?";
+      case "oprah":
+        return "Hello there! It's Oprah. I'm so excited to connect with you today. You know what I always say - every conversation has the potential to open doors to new understanding. So what would you like to talk about?";
       default:
         return "Hello! I'm your AI assistant. How can I help you today?";
     }

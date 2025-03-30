@@ -1,0 +1,17 @@
+<svg width="150" height="150" viewBox="0 0 150 150" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="75" cy="75" r="70" fill="#8B4513" />
+  <path d="M75 30C55 30 40 52 40 75C40 98 55 120 75 120C95 120 110 98 110 75C110 52 95 30 75 30Z" fill="#704214" />
+  <path d="M45 65C45 65 55 85 75 85C95 85 105 65 105 65" stroke="#5D370F" stroke-width="5" />
+  <ellipse cx="60" cy="60" rx="5" ry="7" fill="#3D230A" />
+  <ellipse cx="90" cy="60" rx="5" ry="7" fill="#3D230A" />
+  <path d="M60 40C60 40 65 35 75 35C85 35 90 40 90 40" stroke="#000000" stroke-width="2" />
+  <path d="M65 85C65 85 75 90 85 85" stroke="#000000" stroke-width="2" />
+  <path d="M65 100C65 100 75 105 85 100" stroke="#000000" stroke-width="2" />
+  <!-- Hair -->
+  <path d="M40 35C40 35 60 20 75 25C90 20 110 35 110 35" stroke="#3D230A" stroke-width="8" />
+  <path d="M42 40C42 40 60 25 75 28C90 25 108 40 108 40" stroke="#3D230A" stroke-width="6" />
+  <path d="M45 45C45 45 60 32 75 34C90 32 105 45 105 45" stroke="#3D230A" stroke-width="4" />
+  <!-- Earrings -->
+  <circle cx="35" cy="70" r="3" fill="#FFD700" />
+  <circle cx="115" cy="70" r="3" fill="#FFD700" />
+</svg>
