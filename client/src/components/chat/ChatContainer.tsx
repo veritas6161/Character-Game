@@ -1,5 +1,5 @@
 import { useEffect, useRef } from "react";
-import { Message } from "@shared/schema";
+import { Character, Message } from "@shared/schema";
 import ChatMessage from "./ChatMessage";
 
 interface ChatContainerProps {
@@ -18,25 +18,51 @@ export default function ChatContainer({ messages, isLoading }: ChatContainerProp
     scrollToBottom();
   }, [messages, isLoading]);
 
+  // Find the character from the first message
+  let currentCharacter: Character | undefined;
+  if (messages.length > 0 && messages[0].character) {
+    currentCharacter = messages[0].character as Character;
+  }
+
+  // Get welcome message based on character
+  const getWelcomeMessage = (character?: Character) => {
+    if (!character) return "Hello! I'm your AI assistant. How can I help you today?";
+    
+    switch(character) {
+      case "trump":
+        return "Hello folks, it's me, Donald Trump. Many people are saying I give the best answers, maybe ever. What do you want to talk about? It's gonna be tremendous, believe me!";
+      case "milchick":
+        return "Good day. Seth Milchick here from Lumon Industries. How may I be of assistance? Per company protocol, I'm here to facilitate a productive conversation.";
+      case "yoda":
+        return "Greetings, young one. Yoda, I am. Help you with your questions, I will. The Force, strong with our conversation it shall be, hmm?";
+      default:
+        return "Hello! I'm your AI assistant. How can I help you today?";
+    }
+  };
+
   return (
     <div className="flex-grow overflow-hidden relative">
       <div className="h-full overflow-y-auto p-4 pb-6 space-y-6 max-w-7xl mx-auto">
-        {/* Welcome message */}
-        <ChatMessage 
-          role="assistant"
-          content="Hello! I'm your AI assistant. How can I help you today?"
-          timestamp={new Date()}
-        />
-
-        {/* Render all messages */}
-        {messages.map((message, index) => (
+        {messages.length === 0 ? (
+          // Welcome message based on selected character
           <ChatMessage 
-            key={index}
-            role={message.role}
-            content={message.content}
-            timestamp={message.timestamp}
+            role="assistant"
+            content={getWelcomeMessage(currentCharacter)}
+            timestamp={new Date()}
+            character={currentCharacter}
           />
-        ))}
+        ) : (
+          // Render all messages
+          messages.map((message, index) => (
+            <ChatMessage 
+              key={index}
+              role={message.role}
+              content={message.content}
+              timestamp={message.timestamp}
+              character={message.character as Character}
+            />
+          ))
+        )}
 
         {/* Loading indicator */}
         {isLoading && (

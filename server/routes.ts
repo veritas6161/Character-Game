@@ -18,16 +18,23 @@ export async function registerRoutes(app: Express): Promise<Server> {
         });
       }
       
-      const { content } = result.data;
+      const { content, character } = result.data;
       
-      // Generate response from OpenAI
-      const responseContent = await generateChatResponse(content);
+      // Store the user message
+      await storage.createMessage({
+        role: "user",
+        content: content,
+        character: character,
+      });
       
-      // Store the message
+      // Generate response from OpenAI with the selected character
+      const responseContent = await generateChatResponse(content, character);
+      
+      // Store the assistant message with the character information
       const message = await storage.createMessage({
         role: "assistant",
         content: responseContent,
-        timestamp: new Date(),
+        character: character,
       });
       
       return res.status(200).json(message);

@@ -21,16 +21,23 @@ export const messages = pgTable("messages", {
   id: serial("id").primaryKey(),
   role: text("role").notNull(), // "user" or "assistant"
   content: text("content").notNull(),
+  character: text("character"), // "trump", "milchick", or "yoda"
   timestamp: timestamp("timestamp").notNull().defaultNow(),
 });
 
 export const insertMessageSchema = createInsertSchema(messages).pick({
   role: true,
   content: true,
+  character: true,
 });
+
+export const characterTypes = ["trump", "milchick", "yoda"] as const;
+export const characterSchema = z.enum(characterTypes);
+export type Character = z.infer<typeof characterSchema>;
 
 export const chatRequestSchema = z.object({
   content: z.string().min(1, "Message cannot be empty"),
+  character: characterSchema.optional(),
 });
 
 export type InsertMessage = z.infer<typeof insertMessageSchema>;
