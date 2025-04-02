@@ -5,9 +5,10 @@ import ChatMessage from "./ChatMessage";
 interface ChatContainerProps {
   messages: Message[];
   isLoading: boolean;
+  character?: Character | null;
 }
 
-export default function ChatContainer({ messages, isLoading }: ChatContainerProps) {
+export default function ChatContainer({ messages, isLoading, character }: ChatContainerProps) {
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
   const scrollToBottom = () => {
@@ -18,9 +19,10 @@ export default function ChatContainer({ messages, isLoading }: ChatContainerProp
     scrollToBottom();
   }, [messages, isLoading]);
 
-  // Find the character from the first message
-  let currentCharacter: Character | undefined;
-  if (messages.length > 0 && messages[0].character) {
+  // Use the character prop directly if provided, otherwise try to find it in messages
+  let currentCharacter = character as Character | undefined;
+  // If not provided via prop but messages exist, get from first message
+  if (!currentCharacter && messages.length > 0 && messages[0].character) {
     currentCharacter = messages[0].character as Character;
   }
 

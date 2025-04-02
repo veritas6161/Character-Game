@@ -77,7 +77,8 @@ export default function ChatLayout() {
       />
       <ChatContainer 
         messages={messages} 
-        isLoading={chatMutation.isPending} 
+        isLoading={chatMutation.isPending}
+        character={selectedCharacter}
       />
       <ChatInput 
         onSendMessage={handleSendMessage}
