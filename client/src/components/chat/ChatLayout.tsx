@@ -83,6 +83,7 @@ export default function ChatLayout() {
       <ChatInput 
         onSendMessage={handleSendMessage}
         isLoading={chatMutation.isPending}
+        character={selectedCharacter}
       />
     </div>
   );

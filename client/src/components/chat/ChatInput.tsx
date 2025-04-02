@@ -1,13 +1,22 @@
 import React, { useState } from "react";
 import { Button } from "@/components/ui/button";
+import { Character } from "@shared/schema";
+import { characterImages } from "./CharacterImages";
 
 interface ChatInputProps {
   onSendMessage: (message: string) => void;
   isLoading: boolean;
+  character?: Character | null;
 }
 
-export default function ChatInput({ onSendMessage, isLoading }: ChatInputProps) {
+export default function ChatInput({ onSendMessage, isLoading, character }: ChatInputProps) {
   const [inputValue, setInputValue] = useState("");
+
+  // Get character theme color (if any)
+  const characterInfo = character && characterImages[character] 
+    ? characterImages[character] 
+    : null;
+  const themeColor = characterInfo?.themeColor || "#6366f1";
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -26,13 +35,16 @@ export default function ChatInput({ onSendMessage, isLoading }: ChatInputProps) 
   };
 
   return (
-    <div className="border-t border-muted bg-card p-4">
-      <form className="flex gap-2 max-w-7xl mx-auto" onSubmit={handleSubmit}>
+    <div className="border-t border-muted bg-background/95 backdrop-blur-sm p-4 sticky bottom-0 z-10">
+      <form className="flex gap-3 max-w-5xl mx-auto" onSubmit={handleSubmit}>
         <div className="relative flex-grow">
           <input 
             type="text" 
-            placeholder="Type your message here..." 
-            className="w-full p-3 pr-10 rounded-md bg-muted border border-muted focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary transition-colors"
+            placeholder={character ? `Chat with ${characterInfo?.name}...` : "Type your message here..."} 
+            className={`w-full p-4 pr-10 rounded-xl bg-card shadow-sm border border-muted-foreground/10 focus:outline-none focus:ring-2 transition-all ${character ? "focus:ring-primary/60" : ""}`}
+            style={{
+              boxShadow: character ? `0 4px 12px ${themeColor}15` : undefined
+            }}
             value={inputValue}
             onChange={(e) => setInputValue(e.target.value)}
             onKeyDown={handleKeyDown}
@@ -42,9 +54,23 @@ export default function ChatInput({ onSendMessage, isLoading }: ChatInputProps) 
         <Button 
           type="submit" 
           disabled={isLoading || !inputValue.trim()}
-          className="bg-primary text-primary-foreground rounded-md px-4 py-2 font-medium hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background disabled:opacity-50 disabled:pointer-events-none transition-colors"
+          className="rounded-xl px-6 font-medium shadow-md transition-all"
+          style={{
+            background: character ? themeColor : undefined,
+            color: character ? 'white' : undefined
+          }}
         >
-          Send
+          {isLoading ? (
+            <span className="flex items-center">
+              <svg className="animate-spin -ml-1 mr-2 h-4 w-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+              </svg>
+              Processing
+            </span>
+          ) : (
+            "Send"
+          )}
         </Button>
       </form>
     </div>
