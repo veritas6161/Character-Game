@@ -1,5 +1,5 @@
 import { Character } from "@shared/schema";
-import { characterImages } from "./CharacterImages";
+import { characterImages, getCharacterImage } from "./CharacterImages";
 
 interface ChatHeaderProps {
   onClearChat: () => void;
@@ -13,14 +13,25 @@ export default function ChatHeader({
   onChangeCharacter 
 }: ChatHeaderProps) {
   return (
-    <header className="border-b border-muted p-4">
+    <header className="border-b border-muted p-4 bg-muted/30">
       <div className="flex items-center justify-between max-w-7xl mx-auto">
-        <h1 className="text-xl font-semibold">
-          {character && characterImages[character]
-            ? `Chat with ${characterImages[character].name}` 
-            : "Character Chat"
-          }
-        </h1>
+        <div className="flex items-center gap-3">
+          {character && (
+            <div className="w-10 h-10 rounded-lg overflow-hidden border border-primary/20 shadow-sm">
+              <img 
+                src={getCharacterImage(character)} 
+                alt={characterImages[character].name}
+                className="w-full h-full object-cover" 
+              />
+            </div>
+          )}
+          <h1 className="text-xl font-semibold">
+            {character && characterImages[character]
+              ? characterImages[character].name
+              : "Character Chat"
+            }
+          </h1>
+        </div>
         <div className="flex gap-2">
           {character && onChangeCharacter && (
             <button

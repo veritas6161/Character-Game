@@ -14,7 +14,7 @@ interface CharacterCardProps {
 const CharacterCard = ({ character, name, description, image, selected, onSelect }: CharacterCardProps) => {
   return (
     <div 
-      className={`p-6 border rounded-lg cursor-pointer transition-all ${
+      className={`p-6 border rounded-lg cursor-pointer transition-all overflow-hidden ${
         selected 
           ? "border-primary bg-primary/10 shadow-md" 
           : "border-border hover:border-primary/50 hover:shadow-sm"
@@ -22,7 +22,7 @@ const CharacterCard = ({ character, name, description, image, selected, onSelect
       onClick={onSelect}
     >
       <div className="flex flex-col items-center mb-4">
-        <div className="w-24 h-24 mb-4 rounded-full overflow-hidden">
+        <div className="w-32 h-32 mb-4 rounded-lg overflow-hidden">
           <img src={image} alt={name} className="w-full h-full object-cover" />
         </div>
         <div className="flex items-center justify-between w-full mb-2">
