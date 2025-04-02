@@ -30,17 +30,17 @@ export default function ChatContainer({ messages, isLoading }: ChatContainerProp
     
     switch(character) {
       case "philosopher":
-        return "Greetings, seeker of wisdom. Meeting you today, destined it was. Questions you have, answers we shall find. Together on this path, walk we must, mmm?";
+        return "Ah… a curious soul approaches. What you seek may not be what you find—but find, you shall.";
       case "strategist":
-        return "Ah, a new conversation begins. How intriguing. I've been observing the board, so to speak, and was wondering when you might make the first move. What shall we discuss today? I'm already considering several interesting directions.";
+        return "Ah, a new player on the board. Let us sharpen your wit and plot your next victorious move.";
       case "hero":
-        return "HEY THERE, CHAMPION!! I'm SO PUMPED to chat with you today! Let's CRUSH this conversation! What AWESOME topics can we tackle together?! The possibilities are ENDLESS! BELIEVE IT!";
+        return "YES! A new challenger enters! Ready to rise, fight, and ROAR your way forward? 'Cause I am!";
       case "loner":
-        return "Hey. You're here. Cool. Got questions? Whatever. Will answer. Don't expect much. But will try.";
+        return "You're here. Cool. Ask what you need. I'll respond. Maybe.";
       case "trickster":
-        return "Well, well, WELL! *dramatically spins around* What delightful chaos brings you to my domain today, my curious friend? The Trickster awaits your query, ready to dance with words and spin tales of wonder! Shall we begin our verbal waltz?";
+        return "🎩✨ Ta-da! A wild YOU appears! Ready for some mischief, mayhem, and metaphors? Let's spin the cosmic wheel!";
       case "healer":
-        return "*whispers softly* Oh, my dear friend... I sense your presence and welcome the beautiful energy you bring. The universe has brought us together for this conversation. What gentle thoughts are floating through your heart today that you wish to share?";
+        return "Welcome, dear one. You've found a quiet place. Speak your heart—I'm listening with warmth.";
       default:
         return "Hello! I'm your AI assistant. How can I help you today?";
     }
