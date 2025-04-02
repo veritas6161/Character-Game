@@ -24,11 +24,11 @@ const CharacterCard = ({ character, name, description, style, inspiration, image
       onClick={onSelect}
     >
       <div className="flex flex-col items-center mb-4">
-        <div className="w-36 h-36 mb-4 rounded-lg overflow-hidden">
+        <div className="w-32 h-32 mb-4 rounded-lg overflow-hidden">
           <img src={image} alt={name} className="w-full h-full object-cover" />
         </div>
         <div className="flex items-center justify-between w-full mb-2">
-          <h3 className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary to-primary/70">{name}</h3>
+          <h3 className="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary to-primary/70">{name}</h3>
           {selected && (
             <div className="h-6 w-6 bg-primary rounded-full flex items-center justify-center text-primary-foreground">
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -60,7 +60,7 @@ export default function CharacterSelection({
         <p className="text-muted-foreground">Select a personality to chat with</p>
       </div>
       
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         {characterTypes.map((character) => (
           <CharacterCard
             key={character}
