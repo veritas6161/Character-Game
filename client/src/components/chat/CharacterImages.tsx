@@ -1,7 +1,7 @@
 import { Character } from "@shared/schema";
-import trumpSvg from "../../assets/trump.svg";
-import milchickSvg from "../../assets/milchick.svg";
 import yodaSvg from "../../assets/yoda.svg";
+import milchickSvg from "../../assets/milchick.svg";
+import trumpSvg from "../../assets/trump.svg";
 import clooneySvg from "../../assets/clooney.svg";
 import obamaSvg from "../../assets/obama.svg";
 import oprahSvg from "../../assets/oprah.svg";
@@ -13,35 +13,35 @@ interface CharacterImage {
 }
 
 export const characterImages: Record<Character, CharacterImage> = {
-  trump: {
-    image: trumpSvg,
-    name: "Donald Trump",
-    description: "The 45th President of the United States known for his distinctive speaking style."
-  },
-  milchick: {
-    image: milchickSvg,
-    name: "Seth Milchick",
-    description: "The stern but professional middle manager from Lumon Industries in Severance."
-  },
-  yoda: {
+  philosopher: {
     image: yodaSvg,
-    name: "Yoda",
-    description: "The wise Jedi Master from Star Wars who speaks in a distinctive syntax."
+    name: "The Cryptic Philosopher",
+    description: "Speaks in riddles and inverted syntax. Wisdom wrapped in mystery."
   },
-  clooney: {
+  strategist: {
     image: clooneySvg,
-    name: "George Clooney",
-    description: "The charming actor known for his smooth, sophisticated demeanor and humanitarian work."
+    name: "The Eloquent Strategist",
+    description: "Polished, witty, with dry sarcasm. Always thinking five steps ahead."
   },
-  obama: {
+  hero: {
+    image: trumpSvg,
+    name: "The Loud, Passionate Hero",
+    description: "Shouts often, speaks in motivational bursts, always fired up with big emotions."
+  },
+  loner: {
+    image: milchickSvg,
+    name: "The Deadpan Loner",
+    description: "Minimalist, monotone speech in fragments. Low-energy delivery with high impact."
+  },
+  trickster: {
     image: obamaSvg,
-    name: "Barack Obama",
-    description: "The 44th President of the United States known for his eloquent, measured speaking style."
+    name: "The Theatrical Trickster",
+    description: "Over-the-top, rhyming with dramatic flair. Mischief meets Shakespeare."
   },
-  oprah: {
+  healer: {
     image: oprahSvg,
-    name: "Oprah Winfrey",
-    description: "The iconic talk show host, entrepreneur, and philanthropist known for her warm, engaging presence."
+    name: "The Soft-Spoken Healer",
+    description: "Whispery, compassionate, always positive, sometimes eerily ethereal."
   },
 };
 

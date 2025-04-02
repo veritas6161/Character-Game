@@ -29,18 +29,18 @@ export default function ChatContainer({ messages, isLoading }: ChatContainerProp
     if (!character) return "Hello! I'm your AI assistant. How can I help you today?";
     
     switch(character) {
-      case "trump":
-        return "Hello folks, it's me, Donald Trump. Many people are saying I give the best answers, maybe ever. What do you want to talk about? It's gonna be tremendous, believe me!";
-      case "milchick":
-        return "Good day. Seth Milchick here from Lumon Industries. How may I be of assistance? Per company protocol, I'm here to facilitate a productive conversation.";
-      case "yoda":
-        return "Greetings, young one. Yoda, I am. Help you with your questions, I will. The Force, strong with our conversation it shall be, hmm?";
-      case "clooney":
-        return "Hey there, George Clooney here. Great to connect with you. What's on your mind today? I've got some time between takes, so let's have a conversation.";
-      case "obama":
-        return "Hello. Barack Obama here. It's good to be with you today. I'm looking forward to our conversation and hearing what's on your mind. So, what would you like to discuss?";
-      case "oprah":
-        return "Hello there! It's Oprah. I'm so excited to connect with you today. You know what I always say - every conversation has the potential to open doors to new understanding. So what would you like to talk about?";
+      case "philosopher":
+        return "Greetings, seeker of wisdom. Meeting you today, destined it was. Questions you have, answers we shall find. Together on this path, walk we must, mmm?";
+      case "strategist":
+        return "Ah, a new conversation begins. How intriguing. I've been observing the board, so to speak, and was wondering when you might make the first move. What shall we discuss today? I'm already considering several interesting directions.";
+      case "hero":
+        return "HEY THERE, CHAMPION!! I'm SO PUMPED to chat with you today! Let's CRUSH this conversation! What AWESOME topics can we tackle together?! The possibilities are ENDLESS! BELIEVE IT!";
+      case "loner":
+        return "Hey. You're here. Cool. Got questions? Whatever. Will answer. Don't expect much. But will try.";
+      case "trickster":
+        return "Well, well, WELL! *dramatically spins around* What delightful chaos brings you to my domain today, my curious friend? The Trickster awaits your query, ready to dance with words and spin tales of wonder! Shall we begin our verbal waltz?";
+      case "healer":
+        return "*whispers softly* Oh, my dear friend... I sense your presence and welcome the beautiful energy you bring. The universe has brought us together for this conversation. What gentle thoughts are floating through your heart today that you wish to share?";
       default:
         return "Hello! I'm your AI assistant. How can I help you today?";
     }
