@@ -207,7 +207,7 @@ export async function generateChatResponse(message: string, character?: Characte
     const cleanSystemPrompt = systemPrompt.replace(/Examples:[\s\S]*?Never break character/, "Never break character");
     
     // Build messages array with system prompt and examples as few-shot demonstrations
-    const messages = [
+    const messages: Array<{ role: "system" | "user" | "assistant"; content: string }> = [
       { role: "system", content: cleanSystemPrompt }
     ];
     
@@ -222,7 +222,7 @@ export async function generateChatResponse(message: string, character?: Characte
     
     const response = await openai.chat.completions.create({
       model: "gpt-4o",
-      messages: messages,
+      messages: messages as any, // Type cast to fix type issue
       temperature: 0.9, // Slightly higher temperature for more creative responses
       max_tokens: 1000,
     });

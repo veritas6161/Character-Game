@@ -6,12 +6,14 @@ interface CharacterCardProps {
   character: Character;
   name: string;
   description: string;
+  style: string;
+  inspiration: string;
   image: string;
   selected: boolean;
   onSelect: () => void;
 }
 
-const CharacterCard = ({ character, name, description, image, selected, onSelect }: CharacterCardProps) => {
+const CharacterCard = ({ character, name, description, style, inspiration, image, selected, onSelect }: CharacterCardProps) => {
   return (
     <div 
       className={`p-6 border rounded-lg cursor-pointer transition-all overflow-hidden ${
@@ -36,7 +38,9 @@ const CharacterCard = ({ character, name, description, image, selected, onSelect
           )}
         </div>
       </div>
-      <p className="text-muted-foreground text-center">{description}</p>
+      <p className="text-muted-foreground text-center mb-3">{description}</p>
+      <p className="text-sm text-muted-foreground text-center mb-2"><span className="font-medium">Style:</span> {style}</p>
+      <p className="text-xs text-muted-foreground text-center italic">{inspiration}</p>
     </div>
   );
 };
@@ -64,6 +68,8 @@ export default function CharacterSelection({
             character={character}
             name={characterImages[character].name}
             description={characterImages[character].description}
+            style={characterImages[character].style}
+            inspiration={characterImages[character].inspiration}
             image={characterImages[character].image}
             selected={selectedCharacter === character}
             onSelect={() => onSelectCharacter(character)}
